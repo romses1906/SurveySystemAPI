@@ -37,7 +37,8 @@ class QuestionSerializer(serializers.ModelSerializer):
 
     def validate(self, attrs):
         survey_id = attrs['survey_id']
-        if survey_id in Survey.objects.all():
+        list_id = Survey.objects.values_list('id', flat=True)
+        if survey_id in list_id:
             return attrs
         raise serializers.ValidationError(f'В базе данных отсутствует опрос с id = {survey_id}')
 
