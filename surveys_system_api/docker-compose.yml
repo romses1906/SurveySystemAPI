@@ -19,9 +19,9 @@ services:
       - postgres_volume:/var/lib/postgresql/data/
     environment:
         # Учетные данные, которые можно будет переопределить
-      - POSTGRES_USER=surveysystemapiuser
-      - POSTGRES_PASSWORD=Qwedsa22
-      - POSTGRES_DB=surveysystemapi
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB=${POSTGRES_DB_NAME}
 
 volumes:
   postgres_volume:
